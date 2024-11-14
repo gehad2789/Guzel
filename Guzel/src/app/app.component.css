@@ -1,0 +1,20 @@
+
+
+
+
+body {
+    font-family: "Manrope", sans-serif;
+    font-size: 12px;
+    color: var(--bodytxtcolor) !important;
+    color: #596392;
+}
+.app-body{
+    margin-top: 150px;
+    min-height: 75vh;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+ 
+}
+

@@ -1,0 +1,18 @@
+footer{
+    height: 130px;
+    padding: 15px;
+    background-color:var(--navfootcolor) ;
+    background-color: #F9F9f9;;
+    margin-top: 85vh ;
+    height: 50px;
+    
+}
+body{
+    background-color: var(--seccolor);
+}
+ .logo{
+    
+    border-radius: 20px;
+    font-size: 1.2em;
+    
+} 

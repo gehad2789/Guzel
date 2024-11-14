@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+/*repeated css styles in more than one coponent , best practice to put them into styles.css [main]*/
+
+:root {
+    --primarycolor: hotpink;
+    --seccolor: rgba(253, 240, 242, 0.893);
+    --bodytxtcolor: #596392;
+    --navfootcolor: lightpink;
+}
+
+.logo{
+    padding: 5px 20px ;
+    border-radius: 20px;
+    background-color: var(--seccolor);
+    color: var(--primarycolor);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: large;
+    border: none;
+}
+.nav-link{
+    color: var(--primarycolor);
+    color: #026467;
+}
+/*border shadow*/
+.shadow-border{
+    border: none;
+    box-shadow: 0px 0px 33px -10px var(--navfootcolor);
+}
+
+
