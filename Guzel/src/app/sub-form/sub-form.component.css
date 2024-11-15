@@ -13,11 +13,7 @@ input[text],input[email]{
     font-size: 13px;
     width: 100%;
 }
-.btn-sub{
-    border: none;
-    font-size: 15px;
-    background-color: var(--primarycolor);
-}
+
 .sub-text{
     width: 500px;
 }

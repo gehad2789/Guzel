@@ -5,5 +5,5 @@ nav{ /*to show under header directly in app component*/
 }
 .nav-link{
     text-transform: uppercase;
-    color: var(--primarycolor);
+    font-size: large;
 }
