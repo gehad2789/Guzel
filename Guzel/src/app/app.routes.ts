@@ -6,6 +6,7 @@ import { TermsCondComponent } from './Components/terms-cond/terms-cond.component
 import { HeaderComponent } from './Layouts/header/header.component';
 import { SubFormComponent } from './sub-form/sub-form.component';
 import { CategoryComponent } from './Components/category/category.component';
+import { AboutUsComponent } from './Layouts/about-us/about-us.component';
 
 
 export const routes: Routes = [
@@ -17,6 +18,8 @@ export const routes: Routes = [
     {path:'sub-form',component:SubFormComponent},
     {path:'category',component:CategoryComponent},
     {path:'post',component:PostComponent},
+    {path:'about-us',component:AboutUsComponent},
+
 
 
 
