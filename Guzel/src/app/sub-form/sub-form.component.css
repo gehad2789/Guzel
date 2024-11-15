@@ -1,15 +1,21 @@
 .card{
     background-color: var(--seccolor);
+    height: auto;
+    
    
 }
+.card div{
+    padding: 20px;
+}
 input[text],input[email]{
-    height: 60px;
+    height: 80px;
+    padding-left: 20px;
     font-size: 13px;
     width: 100%;
 }
 .btn-sub{
     border: none;
-    font-size: 13px;
+    font-size: 15px;
     background-color: var(--primarycolor);
 }
 .sub-text{

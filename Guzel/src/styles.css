@@ -3,7 +3,7 @@
 
 :root {
     --primarycolor: hotpink;
-    --seccolor: rgba(253, 240, 242, 0.893);
+    --seccolor: rgb(253, 240, 242);
     --bodytxtcolor: #596392;
     --navfootcolor: lightpink;
 }
@@ -19,13 +19,15 @@
     border: none;
 }
 .nav-link{
-    color: var(--primarycolor);
-    color: #026467;
-}
+    color:white;
+} 
 /*border shadow*/
 .shadow-border{
     border: none;
     box-shadow: 0px 0px 33px -10px var(--navfootcolor);
+}
+.cat-head{
+    background-color: var(--seccolor);
 }
 
 

@@ -1,12 +1,15 @@
 <app-header></app-header>
 <app-cat-nav></app-cat-nav>
-<div class="app-body d-flex w-100 ">
-    <app-post-card></app-post-card>
-
+<div class="app-body  w-100  justify-content-center  ">
+    <!--where i conject component-->
+    <router-outlet></router-outlet>
+</div>
+<div class="container mb-5 pb-5">
+    <div class="justify-content-center row ">
+        <app-sub-form></app-sub-form>
+    </div>
 </div>
 <app-footer></app-footer>
 
 
-<router-outlet></router-outlet>
 
-<!-- 1:03:38 -->
