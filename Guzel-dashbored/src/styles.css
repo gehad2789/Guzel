@@ -1,25 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
-@import "`bootstrap/dist/css/bootstrap.min.css"; /*link bootstrap installed via npm*/
-
-/* You can add global styles to this file, and also import other style files */
 /*repeated css styles in more than one coponent , best practice to put them into styles.css [main]*/
 
 :root {
     --primarycolor: hotpink;
-    --seccolor: rgb(253, 240, 242);
+    --seccolor: rgb(255, 208, 215);
     --bodytxtcolor: #596392;
     --navfootcolor: lightpink;
 }
 
 .logo{
     padding: 5px 20px ;
-    border-radius: 20px;
-    background-color: var(--seccolor);
-    color: var(--primarycolor);
-    text-decoration: none;
+    color: white;
+    text-shadow: 1px 4px 3px rgb(244, 35, 140);
+    text-decoration: none !important;
     text-transform: uppercase;
-    font-size: large;
+    font-size: x-large;
     border: none;
+
 }
 .nav-link{
     color:white;
@@ -30,6 +27,9 @@
     box-shadow: 0px 0px 33px -10px var(--navfootcolor);
 }
 .cat-head{
+    background-color: var(--seccolor);
+}
+.bg-sec-theme{
     background-color: var(--seccolor);
 }
 
