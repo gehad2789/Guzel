@@ -1,0 +1,21 @@
+footer{
+    padding: 20px;
+    background-color: var(--seccolor);
+
+    
+}
+
+
+ .logo{
+    
+    border-radius: 20px;
+    font-size: 1.4rem;
+     
+} 
+
+
+.last{
+    color: var(--primarycolor);
+
+}
+

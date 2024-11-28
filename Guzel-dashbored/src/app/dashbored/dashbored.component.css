@@ -1,0 +1,8 @@
+.card{
+    height: 200px;
+    cursor: pointer;
+    
+}
+.text-sh{
+    color: var(--primarycolor);
+}

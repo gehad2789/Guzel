@@ -1,0 +1,83 @@
+1- after making component of front-end
+2- make seperate angular app for dashbored to connect with main app later[can make it inside main app but seperate one more cleaner]
+3-by cmd/termninal mke into same out-file ng new guzel-dashbored
+4-design component of guzel-dashbored:
+    1- main components for dashbored:
+    *login component [accsesible for admin only with password]
+    *category component manipulation of data
+    *post component  manipulation of data
+    * subscription comp  manipulation of data
+    *comment comp  manipulation of data
+    *dashbored to show all those components and control them
+    * header, footer component
+    ----------------------------------------------------------------------
+    firebase:backend service for web and mobile apps has a real-time db , analytic tools,testing tools, authentications, hosting.....
+    -cloud firestore[firebase]:nosql document-based datatbase.
+    -document:key +value eg: name:....., gender:...
+    -group of [documents]key+value called collection
+    -in fire store can use diff types of data at same collection.
+    -connect also by ids [can connect collections inside document itself]
+
+    1- created new project
+    2- choose web icon to connect my project inside it 
+    3-click register app after name it
+    4- copy data from apiid --->appkey:
+     apiKey: "AIzaSyD7VGzS2Sl90_uBgAKOvTmQtCkLeGy74kA",
+  authDomain: "guzel-2024.firebaseapp.com",
+  projectId: "guzel-2024",
+  storageBucket: "guzel-2024.firebasestorage.app",
+  messagingSenderId: "888679340347",
+  appId: "1:888679340347:web:0e0258487eaaa0100aff1e"
+  5-oppen enviroment folder then choose enviroment.proud.ts then
+
+    -sql:table-based DB. [connect by id[primary key]]
+
+    ------------------------------------------------
+    CRUD[create , read, update,delete] operations :
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    -----------------------------------------------------------------------------------------------
+    Template-driven forms rely on directives defined in the FormsModule.
+
+NgModel	Reconciles value changes in the attached form element with changes in the data model, allowing you to respond to user input with input validation and error handling.
+NgForm	Creates a top-level FormGroup instance and binds it to a <form> element to track aggregated form value and validation status. As soon as you import FormsModule, this directive becomes active by default on all <form> tags. You don't need to add a special selector.
+NgModelGroup	Creates and binds a FormGroup instance to a DOM element.
+
+
+
+--------------------------------------------------------------------------------------------------------------------
+RXJS : using map , filters, pipes  with angular 
+-observers : every change in subject it observe and show it a string[data].
+1- hot observebles
+2-cold observebles
+
+  //rxjs :like using pipline to proccws data
+  //observable from array [sourse wich gonna be subscribed ] services/pipes 
+
+  - services[ ng g service service name ]: service is typically a class with a narrow,used to separate business logic 
+  from the user interface in the application ,well-defined purpose. It should do something specific and do it well.
+  Dependency injection (DI) is the part of the Angular framework that provides components with access to services and
+   other resources. Angular provides the ability for you to inject a service into a component to give that component 
+   access to the service.
+   ------------------------------------------------------------------------------------------------------
+   -to generate interface :ng g interface models/category  [usually it's name =name of service but singular ]
+   ------------------------------------------------------------------------------------------------------------
+   -to show sccsses or fqiler mssgs by package in npm [ngx-toaster]: npm i ngx-toaster
