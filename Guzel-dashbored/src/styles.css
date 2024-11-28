@@ -2,7 +2,7 @@
 /*repeated css styles in more than one coponent , best practice to put them into styles.css [main]*/
 
 
-@import "~ngx-toastr/toastr"; 
+ @import "~ngx-toastr/toastr";
 :root {
     --primarycolor: hotpink;
     --seccolor: rgb(255, 208, 215);
