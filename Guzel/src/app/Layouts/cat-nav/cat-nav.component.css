@@ -1,7 +1,7 @@
 nav{ /*to show under header directly in app component*/
     margin-top: 100px ;
     height: 50px;
-    background-color:var(--navfootcolor) ;
+    background-color:var(--seccolor) ;
 }
 .nav-link{
     text-transform: uppercase;

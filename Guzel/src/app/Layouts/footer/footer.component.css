@@ -1,21 +1,21 @@
 footer{
-    height: 130px;
-    padding: 15px;
-    background-color:var(--navfootcolor) ;
-    height: 50px;
+    padding: 20px;
+    background-color: var(--seccolor);
+
     
 }
-body{
-    background-color: var(--seccolor);
-}
+
+
  .logo{
     
     border-radius: 20px;
-    font-size: 1.1rem;
-    
-    
+    font-size: 1.4rem;
+     
 } 
+
+
 .last{
     color: var(--primarycolor);
 
 }
+

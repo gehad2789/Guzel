@@ -9,6 +9,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Firestore, collection,CollectionReference,FirestoreModule ,collectionData, getDocs} from '@angular/fire/firestore';
 import { getDoc } from 'firebase/firestore';
 import { CategoryComponent } from './category/category.component';
+import { DashboredComponent } from "./dashbored/dashbored.component";
+import { enviroment } from './enviroments/enviroment.prod';
+// app.component.ts
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -22,8 +26,6 @@ import { CategoryComponent } from './category/category.component';
 export class AppComponent {
   title = 'Guzel-dashbored';
 
-  constructor() {
-  }
 
   // async loadCategories() {
   //   const categoriesCollection = collection(this.firestore, 'categoriesdata');
@@ -32,4 +34,10 @@ export class AppComponent {
   //     console.log(doc.id, doc.data());
   //   });
   // }
+  items$: Observable<any[]>;
+
+  constructor(private firestore: Firestore) {
+    const coll = collection(this.firestore, 'your-collection-name');
+    this.items$ = collectionData(coll);
+  }
 }

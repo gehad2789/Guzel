@@ -1,2 +1,0 @@
-# Guzel
-boutique angular app

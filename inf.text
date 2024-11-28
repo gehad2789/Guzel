@@ -14,7 +14,11 @@
     firebase:backend service for web and mobile apps has a real-time db , analytic tools,testing tools, authentications, hosting.....
     -cloud firestore[firebase]:nosql document-based datatbase.
     -document:key +value eg: name:....., gender:...
+<<<<<<< HEAD
     -group of [documents]key+value called collection
+=======
+    -group of key+value called collection
+>>>>>>> 1c8f36cc7c3d42f6a88f6dd80ce94e6d389a1a96
     -in fire store can use diff types of data at same collection.
     -connect also by ids [can connect collections inside document itself]
 
@@ -59,6 +63,7 @@
 
 NgModel	Reconciles value changes in the attached form element with changes in the data model, allowing you to respond to user input with input validation and error handling.
 NgForm	Creates a top-level FormGroup instance and binds it to a <form> element to track aggregated form value and validation status. As soon as you import FormsModule, this directive becomes active by default on all <form> tags. You don't need to add a special selector.
+<<<<<<< HEAD
 NgModelGroup	Creates and binds a FormGroup instance to a DOM element.
 
 
@@ -81,3 +86,6 @@ RXJS : using map , filters, pipes  with angular
    -to generate interface :ng g interface models/category  [usually it's name =name of service but singular ]
    ------------------------------------------------------------------------------------------------------------
    -to show sccsses or fqiler mssgs by package in npm [ngx-toaster]: npm i ngx-toaster
+=======
+NgModelGroup	Creates and binds a FormGroup instance to a DOM element.
+>>>>>>> 1c8f36cc7c3d42f6a88f6dd80ce94e6d389a1a96

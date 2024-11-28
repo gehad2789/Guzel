@@ -3,20 +3,20 @@
 
 :root {
     --primarycolor: hotpink;
-    --seccolor: rgb(253, 240, 242);
+    --seccolor: rgb(255, 208, 215);
     --bodytxtcolor: #596392;
     --navfootcolor: lightpink;
 }
 
 .logo{
     padding: 5px 20px ;
-    border-radius: 20px;
-    background-color: var(--seccolor);
-    color: var(--primarycolor);
+    color: white;
+    text-shadow: 1px 3px 3px hotpink;
     text-decoration: none;
     text-transform: uppercase;
-    font-size: large;
+    font-size: x-large;
     border: none;
+
 }
 .nav-link{
     color:white;
