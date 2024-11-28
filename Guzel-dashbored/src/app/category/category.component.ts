@@ -17,7 +17,10 @@ import { Category } from '../models/category';
   styleUrl: './category.component.css'
 })
 export class CategoryComponent implements OnInit{
+  categoryArray: { id: string, category: string }[] = []; // Array of objects with 'id' and 'category'
+
   formdata: any = {}; // Define and initialize the formdata property
+  
    
   // constructor(private asf:Firestore ){//AngularFirestore
 
@@ -27,6 +30,11 @@ export class CategoryComponent implements OnInit{
 
   }
   ngOnInit(): void {
+    this.categoryservice.getCategories().subscribe(val=>{
+      this.categoryArray=val;
+      console.log(this.categoryArray);
+
+    });
     
   }
   
@@ -37,6 +45,7 @@ export class CategoryComponent implements OnInit{
         //add category interface type[string]
       let categoryData:Category={
         category:formdata.value.category,
+        id:formdata.value.id
       }
 
       console.log(categoryData.category); //return {category: 'hader'} to accses to value[hader only use .category]
@@ -102,9 +111,8 @@ export class CategoryComponent implements OnInit{
 //   });
 
 
-     
-
      }
+     
 
 
 

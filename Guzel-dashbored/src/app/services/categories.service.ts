@@ -1,25 +1,48 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collection, addDoc } from '@angular/fire/firestore';
-import { ToastrService } from 'ngx-toastr';
+import { Firestore, collection, addDoc, collectionData, query, orderBy } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Category } from '../models/category'; // Assuming a Category model is available
 
 @Injectable({
   providedIn: 'root',
 })
 export class CategoriesService {
-  //call it when category-npm i ngx=toasterform is valid 
-  constructor(private asf: Firestore,private toastr:ToastrService) {}
+  constructor(private asf: Firestore) {}
 
+  // Method to save data to Firestore
   saveData(categoryData: any) {
     const categoriesCollection = collection(this.asf, 'category');
 
-    // Add a new category
+    // Add a new category to the Firestore collection
     addDoc(categoriesCollection, categoryData)
       .then((docRef) => {
         console.log('Category added successfully: ', docRef.id);
-        this.toastr.success('data added succsesfully')
       })
       .catch((error) => {
         console.error('Error adding category: ', error);
       });
   }
-}
+
+  // Method to get real-time updates for categories
+
+  getCategories(): Observable<{ id: string, category: string }[]> {
+    const categoriesCollection = collection(this.asf, 'category');
+
+    return collectionData(categoriesCollection, { idField: 'id' }).pipe(
+      map((categories: any[]) => categories.map((category) => ({
+        id: category.id,
+        category: category.category, // Assuming Firestore has a 'category' field
+      })))
+    );
+  }
+ 
+  }
+
+  // Alternative method using query to get sorted categories (example)
+  
+
+
+
+  
+
