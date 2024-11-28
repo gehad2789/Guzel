@@ -2,14 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
-import { provideFirestore, getFirestore } from '@angular/fire/firestore';
-import { provideAuth, getAuth } from '@angular/fire/auth'; // Optional for Firebase Authentication
 import { environment } from './environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
-// import { AngularFirestoreModule} from '@angular/fire/firestore';
-import { FirestoreModule} from '@angular/fire/firestore';
-
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { HeaderComponent } from './layouts/header/header.component';
 
@@ -22,7 +18,10 @@ import { HeaderComponent } from './layouts/header/header.component';
     AppComponent,
     FooterComponent,
     HeaderComponent,
-    AngularFireModule
+    AngularFireModule,
+    /*used in the root module (typically app. module. ts) of the Angular application to configure services, routes, and other settings that are shared across the entire application. It is responsible for providing services and configuring routes globally*/
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
    
   ],
   providers: [],
