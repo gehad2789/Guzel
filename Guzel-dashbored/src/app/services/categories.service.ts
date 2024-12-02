@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collection, addDoc, collectionData, query, orderBy } from '@angular/fire/firestore';
+import { Firestore, collection, addDoc, collectionData, query, orderBy,doc ,updateDoc} from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Category } from '../models/category'; // Assuming a Category model is available
@@ -36,10 +36,19 @@ export class CategoriesService {
       })))
     );
   }
+
  
-  }
+  
+  
 
   // Alternative method using query to get sorted categories (example)
+  updateData(cat:string,id:string){
+
+  }
+}
+
+
+
   
 
 

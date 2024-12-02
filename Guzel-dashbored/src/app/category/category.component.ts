@@ -15,7 +15,9 @@ import { Category } from '../models/category';
 })
 export class CategoryComponent implements OnInit {
   categoryArray: { id: string, category: string }[] = []; // Array of objects with 'id' and 'category'
-  formdata: any = {}; // Define and initialize the formdata property
+  cat_form:any='';
+  id_form:any='';
+  form_status:string='Add';
 
   constructor(private firestore: Firestore, private categoryservice: CategoriesService) {}
 
@@ -29,11 +31,21 @@ export class CategoryComponent implements OnInit {
   // Send entered data to Firestore
   onSubmit(formdata: NgForm) { // all data about form
     // Generate a unique ID using the doc function
+
     const newDocRef = doc(collection(this.firestore, 'category'));
     let categoryData: Category = {
       category: formdata.value.category || '', // Ensure category is not undefined
       id: newDocRef.id // Use the generated ID
     };
+
+    if(this.form_status=="Add"){
+          // Call service
+    this.categoryservice.saveData(categoryData);
+    formdata.reset();
+
+    }else{
+      this.categoryservice.updateData(this.cat_form,this.id_form);
+    }
 
     console.log(categoryData.category); // return {category: 'hader'} to access the value [hader only use .category]
 
@@ -42,19 +54,19 @@ export class CategoryComponent implements OnInit {
       subcategory: "subcategory1",
     };
 
-    // Call service
-    this.categoryservice.saveData(categoryData);
 
-    // Uncomment and use the following code if you want to add subcategories directly in this method
-    // const categoriesCollection = collection(this.firestore, 'category');
-    // addDoc(categoriesCollection, categoryData)
-    //   .then((docRef) => {
-    //     console.log('Category added successfully: ', docRef.id);
-    //     const subcategoriesCollection = collection(docRef, 'subcategories');
-    //     addDoc(subcategoriesCollection, sub_categoryData)
-    //       .then(() => console.log('Subcategory added successfully'))
-    //       .catch(error => console.error('Error adding subcategory: ', error));
-    //   })
-    //   .catch(error => console.error('Error adding category: ', error));
+    
   }
+  //edit button function
+  onEdit(category:string,id:string){
+    console.log(category);
+    this.cat_form=category;
+    this.id_form=id;
+    this.form_status='Edit';//make text in btn at table dynamic
+
+
+  }
+
+  
+  
 }

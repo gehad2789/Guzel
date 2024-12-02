@@ -10,13 +10,14 @@
                         <input type="text" name="category" class="form-control shadow-border w-50 " 
                     placeholder="add new category" ngModel
                     #newcat="ngModel"
+                    [(ngModel)]="cat_form"
                     required
                     [ngClass]="{'is-invalid': newcat.invalid && newcat.touched }"
-                    >
+                    ><!--ngmodel=catform which = category so it shows when i click at edirt btn -->
                    
 
                 <div class=" py-3 text-center ">
-                    <button class="btn btn-dark text-nowrap px-3 mx-3 " [disabled]="categoryForm.invalid" >add category</button>
+                    <button class="btn btn-dark text-nowrap px-3 mx-3 " [disabled]="categoryForm.invalid" >{{form_status}} category</button>
                   </div>
 
                         
@@ -73,6 +74,9 @@
                             <tr *ngFor="let cat of categoryArray; let i=index">
                                 <td> {{i}}</td>
                                 <td> {{cat.category}}</td>
+                                <td>
+                                    <button class="btn btn-dark  btn-sm" (click)="onEdit(cat.category,cat.id)">{{form_status}}</button>
+                                </td>
 
                             </tr>
                         </tbody>
