@@ -2,121 +2,59 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgForm } from '@angular/forms';
 import { FormsModule } from '@angular/forms'; // Import FormsModule
-import { Firestore, collection, addDoc,doc } from '@angular/fire/firestore';
+import { Firestore, collection, addDoc, doc } from '@angular/fire/firestore';
 import { CategoriesService } from '../services/categories.service';
 import { Category } from '../models/category';
-
-// import { AngularFirestore } from '@angular/fire/firestore';
-
 
 @Component({
   selector: 'app-category',
   standalone: true,
-  imports: [CommonModule,FormsModule,],
+  imports: [CommonModule, FormsModule],
   templateUrl: './category.component.html',
-  styleUrl: './category.component.css'
+  styleUrls: ['./category.component.css']
 })
-export class CategoryComponent implements OnInit{
+export class CategoryComponent implements OnInit {
   categoryArray: { id: string, category: string }[] = []; // Array of objects with 'id' and 'category'
-
   formdata: any = {}; // Define and initialize the formdata property
-  
-   
-  // constructor(private asf:Firestore ){//AngularFirestore
 
-  //import service to use when form is valid
-    constructor( private categoryservice:CategoriesService){//AngularFirestore
+  constructor(private firestore: Firestore, private categoryservice: CategoriesService) {}
 
-
-  }
   ngOnInit(): void {
-    this.categoryservice.getCategories().subscribe(val=>{
-      this.categoryArray=val;
+    this.categoryservice.getCategories().subscribe(val => {
+      this.categoryArray = val;
       console.log(this.categoryArray);
-
     });
-    
   }
-  
 
+  // Send entered data to Firestore
+  onSubmit(formdata: NgForm) { // all data about form
+    // Generate a unique ID using the doc function
+    const newDocRef = doc(collection(this.firestore, 'category'));
+    let categoryData: Category = {
+      category: formdata.value.category || '', // Ensure category is not undefined
+      id: newDocRef.id // Use the generated ID
+    };
 
-    //send entered data to fire store 
-    onSubmit(formdata :NgForm){ //all data about form
-        //add category interface type[string]
-      let categoryData:Category={
-        category:formdata.value.category,
-        id:formdata.value.id
-      }
+    console.log(categoryData.category); // return {category: 'hader'} to access the value [hader only use .category]
 
-      console.log(categoryData.category); //return {category: 'hader'} to accses to value[hader only use .category]
+    // Subcollection to save inside document
+    let sub_categoryData = {
+      subcategory: "subcategory1",
+    };
 
-      //subcollection wanna save inside document
-      let sub_categoryData={
-        subcategory:"subcategory1",
-      }
-      //call service 
-      this.categoryservice.saveData(categoryData)
+    // Call service
+    this.categoryservice.saveData(categoryData);
 
-
-
-
-
-
-// const categoriesCollection = collection(this.asf, 'category');
-
-// // Add a new category
-// addDoc(categoriesCollection, categoryData)
-//   .then((docRef) => {
-//     console.log('Category added successfully: ', docRef.id);
-
-//     // Reference to the subcategories collection under the newly created category
-//     const subcategoriesCollection = collection(docRef, 'subcategories');
-
-//     // Add a subcategory
-//     addDoc(subcategoriesCollection, sub_categoryData)
-//       .then(() => {
-//         console.log('Subcategory added successfully');
-
-//       })
-
-      
-//       .catch((error) => {
-//         console.error('Error adding subcategory: ', error);
-//       });
-
-
-//        // Reference to the subcategories collection under the newly created category
-//     // const subcategoriesCollection2 = collection(docRef, 'subcategories2');
-
-//     // Add a subcategory2
-//     addDoc(subcategoriesCollection, sub_categoryData)
-//       .then(() => {
-//         console.log('Subcategory2 added successfully');
-
-//       })
-
-      
-//       .catch((error) => {
-//         console.error('Error adding subcategory: ', error);
-//       });
-
-//       //add subcat3 
-//       const subcategoryDocRef3 = doc(this.asf, `categories/${docRef.id}/subcategories/${docRef.id}`);
-
-
-
-//   })
-//   .catch((error) => {
-//     console.error('Error adding category: ', error);
-//   });
-
-
-     }
-     
-
-
-
-  
-  
-
+    // Uncomment and use the following code if you want to add subcategories directly in this method
+    // const categoriesCollection = collection(this.firestore, 'category');
+    // addDoc(categoriesCollection, categoryData)
+    //   .then((docRef) => {
+    //     console.log('Category added successfully: ', docRef.id);
+    //     const subcategoriesCollection = collection(docRef, 'subcategories');
+    //     addDoc(subcategoriesCollection, sub_categoryData)
+    //       .then(() => console.log('Subcategory added successfully'))
+    //       .catch(error => console.error('Error adding subcategory: ', error));
+    //   })
+    //   .catch(error => console.error('Error adding category: ', error));
+  }
 }

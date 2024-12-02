@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-categories',
@@ -14,11 +14,11 @@ export class CategoriesComponent {
 
     }
     
-    onSubmit(formdata :any){ //all data about form
+    onSubmit(formdata :NgForm){ //all data about form
       console.log(formdata.value); //return {category: 'hader'} to accses to value[hader only use .category]
 
       let categoryData={
-        category:formdata.value.category,
+        category: formdata.value.category || '', // Ensure category is not undefined
       }
 
     }
